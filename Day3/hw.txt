@@ -1,11 +1,12 @@
 1- Write an express server that listens to port 3535 that does the same requirements of the http assignment.
- Submit your code or a link to your personal GitHub where you have your code exists.
+    Submit your code or a link to your personal GitHub where you have your code exists.
 
 2- Write an express application that returns the main page for the MEAN Games application.
 
 3- Add the ability to get all games from json file to MEAN Games. (the json file can be found in the resources folder).
 
-4- Write an express application that returns the result of dividing two numbers provided by the user. One number is given as a path parameter the second number as a queryString.
+4- Write an express application that returns the result of dividing two numbers provided by the user.
+     One number is given as a path parameter the second number as a queryString.
 
 5- Create a school.json file. Then add the following json objects to the file (name, gpa):
 

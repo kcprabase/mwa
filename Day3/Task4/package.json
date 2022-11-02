@@ -1,0 +1,19 @@
+{
+  "name": "task4",
+  "version": "1.0.0",
+  "description": "express application that returns the result of dividing two numbers provided by the user. One number is given as a path parameter the second number as a queryString.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "prabesh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
