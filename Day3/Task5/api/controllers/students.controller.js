@@ -6,5 +6,9 @@ module.exports.getAll = (req, res) => {
 
 module.exports.getOne = (req, res) => {
     const studentId = req.params.studentId;
-    res.status(200).json(studentsData[studentId]);
+    if (studentId < 1 || studentId > studentsData.length) {
+        res.status(404).send("RESOURCE NOT FOUND");
+    } else {
+        res.status(200).json(studentsData[studentId - 1]);
+    }
 }
