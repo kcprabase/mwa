@@ -16,8 +16,8 @@ app.get("/json", function (req, res) {
     res.send({ "test": "test" });
 });
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname,process.env.PUBLIC_FOLDER)));
 
 const server = app.listen(parseInt(process.env.PORT), () => {
-    console.log("App is running on port ", server.address().port);
+    console.log(process.env.APP_START_MSG, server.address().port);
 })
