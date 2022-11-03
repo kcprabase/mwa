@@ -1,12 +1,16 @@
 {
-  "name": "task5",
+  "name": "meangames",
   "version": "1.0.0",
-  "description": "express application that returns all students from the school,json file, and returns one student.",
+  "description": "class mean games ",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "express",
+    "node"
+  ],
   "author": "prabesh",
   "license": "ISC",
   "dependencies": {
