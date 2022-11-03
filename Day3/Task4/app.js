@@ -8,7 +8,7 @@ app.get("/:first", (req, res) => {
     if (second == 0) {
         res.status(404).send("cannot divide by zero");
     } else {
-        res.status(200).send((first / second).toString());
+        res.status(200).send(`${first} divided by ${second} is ${first / second}`);
     }
 });
 

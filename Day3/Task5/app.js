@@ -8,6 +8,10 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.get("/",(req,res)=>{
+    res.status(200).send(process.env.DEFAULT_APP_MESSAGE);
+});
+
 app.use(process.env.API_ROUTE, routes);
 
 const server = app.listen(parseInt(process.env.PORT), () => {
