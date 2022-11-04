@@ -39,6 +39,46 @@ module.exports.getOne = (req, res) => {
     // res.status(200).json(gamesData[gameId]);
 }
 
-module.exports.add = (req, res) => {
+module.exports.addOne = (req, res) => {
+    console.log("body", req.body);
+    const db = dbConnection.get()
+    const gamesCollection = db.collection("games");
+    if (req.body && req.body.title && req.body.price && (
+        req.body.minPlayers >= 1 && req.body.minPlayers <= 11
+    ) && (
+            req.body.minAge >= 6 && req.body.minAge <= 99
+        )) {
+        let newGame = {
+            title: req.body.title,
+            price: parseFloat(req.body.price),
+            minPlayers: parseInt(req.body.minPlayers),
+            minAge: parseInt(req.body.minAge)
+        };
+        gamesCollection.insertOne(newGame, (err, insertedGame) => {
+            if (err) {
+                res.status(500).json({ error: err });
+            } else {
+                console.log(insertedGame);
+                res.status(200).json(insertedGame);
+            }
+        });
+    } else {
+        console.log("Data missing from form");
+        res.status(400).json({ error: "Required data missing" });
+    }
 
+}
+
+
+module.exports.deleteOne = (req, res) => {
+    const gameId = req.params.gameId;
+    console.log(gameId)
+    dbConnection.get().collection("games").deleteOne({ _id: ObjectId(gameId) }, (err, count) => {
+        if (err) {
+            res.status(500).send("Error occurred");
+        } else {
+            res.status(200).json(count);
+        }
+    });
+    // res.status(200).json(gamesData[gameId]);
 }
