@@ -24,9 +24,6 @@ module.exports.getOne = (req, res) => {
     const gameId = req.params.gameId;
     console.log(gameId)
     dbConnection.get().collection("games").findOne({ _id: ObjectId(gameId) }, (err, game) => {
-        // const db = dbConnection.get()
-        // const gamesCollection = db.collection("games")
-        // gamesCollection.findOne({ _id: ObjectId(gameId) }, (err, game) => {
         if (err) {
             res.status(500).send("Error occurred");
         } else {
@@ -36,7 +33,6 @@ module.exports.getOne = (req, res) => {
             res.status(st).json(game);
         }
     });
-    // res.status(200).json(gamesData[gameId]);
 }
 
 module.exports.addOne = (req, res) => {
@@ -80,5 +76,24 @@ module.exports.deleteOne = (req, res) => {
             res.status(200).json(count);
         }
     });
-    // res.status(200).json(gamesData[gameId]);
+}
+
+module.exports.updateOne = (req, res) => {
+    const gameId = req.params.gameId;
+    if (req.body) {
+        console.log(gameId)
+        dbConnection.get().collection("games")
+            .updateOne({ _id: ObjectId(gameId) },
+                { $set: req.body },
+                (err, count) => {
+                    console.log(err);
+                    console.log(count);
+                    if (err) {
+                        res.status(500).send("Error occurred");
+                    } else {
+                        res.status(200).json(count);
+                    }
+                });
+    }
+
 }

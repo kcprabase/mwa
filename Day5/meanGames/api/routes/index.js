@@ -10,7 +10,10 @@ router.route("/games/:gameId")
 router.route("/games/add")
     .post(gamesController.addOne);
 
-    router.route("/games/delete/:gameId")
+router.route("/games/delete/:gameId")
     .delete(gamesController.deleteOne);
+
+router.route("/games/update/:gameId")
+    .put(gamesController.updateOne);
 
 module.exports = router;
