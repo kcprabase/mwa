@@ -7,7 +7,4 @@ router.route("/games").get(gamesController.getAll);
 router.route("/games/:gameId")
     .get(gamesController.getOne);
 
-router.route("/gamesPage")
-    .get(gamesController.getPage);
-
 module.exports = router;
