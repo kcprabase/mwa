@@ -23,10 +23,10 @@ module.exports.getAll = (req, res) => {
 module.exports.getOne = (req, res) => {
     const gameId = req.params.gameId;
     console.log(gameId)
-    // dbConnection.get().collection("games").findOne({ _id: ObjectId(gameId) }, (err, game) => {
-    const db = dbConnection.get()
-    const gamesCollection = db.collection("games")
-    gamesCollection.findOne({ _id: ObjectId(gameId) }, (err, game) => {
+    dbConnection.get().collection("games").findOne({ _id: ObjectId(gameId) }, (err, game) => {
+        // const db = dbConnection.get()
+        // const gamesCollection = db.collection("games")
+        // gamesCollection.findOne({ _id: ObjectId(gameId) }, (err, game) => {
         if (err) {
             res.status(500).send("Error occurred");
         } else {
@@ -37,4 +37,8 @@ module.exports.getOne = (req, res) => {
         }
     });
     // res.status(200).json(gamesData[gameId]);
+}
+
+module.exports.add = (req, res) => {
+
 }
