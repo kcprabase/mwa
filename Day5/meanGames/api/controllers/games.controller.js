@@ -1,4 +1,5 @@
 // const gamesData = require("../data/games.json");
+const { ObjectId } = require("mongodb");
 const dbConnection = require("../data/dbconnection")
 
 module.exports.getAll = (req, res) => {
@@ -9,9 +10,11 @@ module.exports.getAll = (req, res) => {
     // console.log("offset", offset, "limit", limit);
     gamesCollection.find().skip(offset).limit(limit).toArray((err, games) => {
         if (err) {
-            res.status(404).send("Cannot find data");
+            res.status(500).send("cannot find games");
         } else {
-            res.status(200).json(games);
+            let st = 200;
+            if (!games) st = 404;
+            res.status(st).json(games);
         }
     })
     // res.status(200).json(gamesData);
@@ -19,5 +22,19 @@ module.exports.getAll = (req, res) => {
 
 module.exports.getOne = (req, res) => {
     const gameId = req.params.gameId;
-    res.status(200).json(gamesData[gameId]);
+    console.log(gameId)
+    // dbConnection.get().collection("games").findOne({ _id: ObjectId(gameId) }, (err, game) => {
+    const db = dbConnection.get()
+    const gamesCollection = db.collection("games")
+    gamesCollection.findOne({ _id: ObjectId(gameId) }, (err, game) => {
+        if (err) {
+            res.status(500).send("Error occurred");
+        } else {
+            console.log(game);
+            let st = 200;
+            if (!game) st = 404;
+            res.status(st).json(game);
+        }
+    });
+    // res.status(200).json(gamesData[gameId]);
 }
