@@ -1,0 +1,9 @@
+<p>job-form works!</p>
+
+
+<form (ngSubmit)="saveJob()">
+    <label>Title: <input name="title" [(ngModel)]="job.title"></label><br />
+    <label>Desc: <input name="description" [(ngModel)]="job.description"></label><br />
+    
+    <button>Save</button>
+</form>

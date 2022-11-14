@@ -1,0 +1,7 @@
+<br>
+<button routerLink="/addjob">Add job</button>
+<p>List of Jobs</p>
+<ul>
+    <!-- <li *ngFor="let job of jobs">{{job.title}} - {{job.salary | currency}} - {{job.postDate | date}}</li> -->
+    <li *ngFor="let job of jobs">{{job.title}} -  {{job.postDate | date}}</li>
+</ul>
