@@ -1,0 +1,9 @@
+The list of Companies are:<br />
+<button (click)="sortFn()">Sort</button>
+<ul>
+    <li *ngFor="let company of companies">
+        <a routerLink="{{company._id}}">{{company.name}}</a>
+    </li>
+</ul>
+<button [disabled]="offset<count" (click)="prev()">Previous</button>
+<button [disabled]="!companies || companies.length < count" (click)="next()">Next</button>

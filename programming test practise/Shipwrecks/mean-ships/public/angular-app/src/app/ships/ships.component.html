@@ -1,0 +1,16 @@
+Number of ships to display each page
+<select name="pageSize" [(ngModel)]="pageSize" (change)="pageUpdate()">
+    <option [value]=5>5</option>
+    <option [value]=10>10</option>
+    <option [value]=50>50</option>
+</select>
+The list of Ships are:<br />
+
+<ul>
+    <li *ngFor="let ship of ships">
+        <a routerLink="{{ship._id}}">{{ship.depth}} - {{ship.coordinates}}</a>
+    </li>
+</ul>
+
+<button [disabled]="offset < pageSize" (click)="prevClicked()">Previous</button>
+<button [disabled]="!ships || ships.length == 0" (click)="nextClicked()">Next</button>

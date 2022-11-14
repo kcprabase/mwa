@@ -1,0 +1,19 @@
+<H1>City: {{city.city}}<br /></H1>
+<br />
+Zip: {{city.zip}}<br />
+Location: {{city.loc.x}} , {{city.loc.y}}<br />
+Population: {{city.pop}}<br />
+State: {{city.state}}<br />
+
+List of nearby cities:
+<select name="distance" [(ngModel)]="distance">
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="50">50</option>
+</select>
+Miles.
+<button (click)="search()">List</button>
+<br>
+<ul>
+    <li *ngFor="let city of cities">{{city.city}} - {{city.state}}</li>
+</ul>

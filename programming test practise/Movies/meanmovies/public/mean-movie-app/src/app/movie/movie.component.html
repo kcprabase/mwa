@@ -1,0 +1,12 @@
+<h3>{{movie.title}}</h3>
+<br />
+Year: {{movie.year}} <br>
+Release Date: {{ movie.releaseDate | date: 'MMM YYYY'}}<br>
+<span *ngIf="movie.genres"> Genres: {{movie.genres.join()}}</span><br>
+<span *ngIf="movie.directors">Directors: {{movie.directors.join()}}</span><br>
+<span *ngIf="movie.tomatoes && movie.tomatoes.viewer && movie.tomatoes.viewer.rating"> Rating:
+    {{movie.tomatoes.viewer.rating}}</span><br>
+<br />
+<button (click)="deleteMovie()">Delete</button>
+<br />
+<img *ngIf="movie.poster" src="{{movie.poster}}">

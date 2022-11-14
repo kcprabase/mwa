@@ -1,0 +1,9 @@
+<label>Latitude: <input name="latitude" [(ngModel)]="model.lat"></label><br>
+<label>Longitude: <input name="longitude" [(ngModel)]="model.lng"></label><br>
+<label>Distance: <input name="distance" [(ngModel)]="model.distance"></label><br>
+<button (click)="search()">Search</button>
+
+<br>
+<ul>
+    <li *ngFor="let item of ships"><a routerLink="{{item._id}}">{{item.depth}} _ {{item.coordinates}}</a></li>
+</ul>

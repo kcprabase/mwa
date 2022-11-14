@@ -1,0 +1,10 @@
+<h3>Search Cities</h3>
+City Name:
+<input name="searchText" [(ngModel)]="searchText">
+<br>
+<button (click)="search()">Find</button>
+
+<br>
+<ul>
+    <li *ngFor="let city of cities"><a routerLink="{{city._id}}">{{city.city}} - {{city.state}}</a></li>
+</ul>
